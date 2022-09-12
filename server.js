@@ -19,10 +19,6 @@ const hpp = require('hpp')
 // Logger
 const pino = require('express-pino-logger')
 
-// Swagger documentation
-const swaggerUi = require('swagger-ui-express')
-const swaggerFile = require('./swagger_output.json')
-
 // Custom modules
 const mongo = require('./config/databases/mongo')
 const authRouter = require('./routes/auth')
@@ -52,7 +48,6 @@ if (NODE_ENV === ENVIRONMENTS.DEVELOPMENT) {
 // Routes
 server.use('/auth', authRouter)
 server.use('/contacts', contactsRouter)
-server.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // Error handlers
 server.all('*', (req, res, next) => {
