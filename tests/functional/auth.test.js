@@ -1,7 +1,7 @@
 'use strict'
-const { describe, beforeAll, afterAll, afterEach, it, expect } = require('@jest/globals')
+const { describe, beforeAll, afterAll, it, expect } = require('@jest/globals')
 const request = require('supertest')
-const { connect, disconnect, clearDb } = require('./mongoDB')
+const { connect, disconnect } = require('./mongoDB')
 const server = require('../../server')
 
 beforeAll(async () => await connect())
